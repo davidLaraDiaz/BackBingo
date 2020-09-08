@@ -7,7 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+
+
 
 @Entity
 @Table(name = "bingo_user")
@@ -23,7 +28,9 @@ public class Usuario implements Serializable{
 	private String username;
 	private String img_url;
 	private String password;
-	private int rol_id;
+	@ManyToOne
+    @JoinColumn(name = "rol_id")
+	private Role rol_id;
 	private char status;
 	private boolean expired;
 	private boolean locked;
@@ -108,12 +115,12 @@ public class Usuario implements Serializable{
 	}
 
 
-	public int getRol_id() {
+	public Role getRol_id() {
 		return rol_id;
 	}
 
 
-	public void setRol_id(int rol_id) {
+	public void setRol_id(Role rol_id) {
 		this.rol_id = rol_id;
 	}
 
