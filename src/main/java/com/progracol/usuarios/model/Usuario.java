@@ -20,6 +20,7 @@ public class Usuario implements Serializable{
 	private Long user_id;
 	private String names;
 	private String last_names;
+	private String username;
 	private String img_url;
 	private String password;
 	private int rol_id;
@@ -74,6 +75,16 @@ public class Usuario implements Serializable{
 
 	public void setLast_names(String last_names) {
 		this.last_names = last_names;
+	}
+	
+
+	public String getUsername() {
+		return username;
+	}
+
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 
