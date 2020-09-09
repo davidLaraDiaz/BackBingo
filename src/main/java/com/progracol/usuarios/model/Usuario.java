@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "bingo_user")
+@Table(name = "bingo_users")
 public class Usuario implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -34,17 +34,10 @@ public class Usuario implements Serializable{
 	private char status;
 	private boolean expired;
 	private boolean locked;
-	private boolean credencias_expired;
+	private boolean credrencials_expired;
 	private String phone;
 	private String position;
-	private Date created_at;
-	private int created_by;
-	private Date last_update_at;
-	private int last_update_by;
-	private Date deleted_at;
-	private int deleted_by;
 	private String cedula;
-	private int customer_id;
 	private boolean preregister;
 	private Date nacimiento;
 	private int maxrecharge;
@@ -155,13 +148,16 @@ public class Usuario implements Serializable{
 	}
 
 
-	public boolean isCredencias_expired() {
-		return credencias_expired;
+	
+
+
+	public boolean isCredrencials_expired() {
+		return credrencials_expired;
 	}
 
 
-	public void setCredencias_expired(boolean credencias_expired) {
-		this.credencias_expired = credencias_expired;
+	public void setCredrencials_expired(boolean credrencials_expired) {
+		this.credrencials_expired = credrencials_expired;
 	}
 
 
@@ -185,66 +181,6 @@ public class Usuario implements Serializable{
 	}
 
 
-	public Date getCreated_at() {
-		return created_at;
-	}
-
-
-	public void setCreated_at(Date created_at) {
-		this.created_at = created_at;
-	}
-
-
-	public int getCreated_by() {
-		return created_by;
-	}
-
-
-	public void setCreated_by(int created_by) {
-		this.created_by = created_by;
-	}
-
-
-	public Date getLast_update_at() {
-		return last_update_at;
-	}
-
-
-	public void setLast_update_at(Date last_update_at) {
-		this.last_update_at = last_update_at;
-	}
-
-
-	public int getLast_update_by() {
-		return last_update_by;
-	}
-
-
-	public void setLast_update_by(int last_update_by) {
-		this.last_update_by = last_update_by;
-	}
-
-
-	public Date getDeleted_at() {
-		return deleted_at;
-	}
-
-
-	public void setDeleted_at(Date deleted_at) {
-		this.deleted_at = deleted_at;
-	}
-
-
-	public int getDeleted_by() {
-		return deleted_by;
-	}
-
-
-	public void setDeleted_by(int deleted_by) {
-		this.deleted_by = deleted_by;
-	}
-
-
 	public String getCedula() {
 		return cedula;
 	}
@@ -254,15 +190,6 @@ public class Usuario implements Serializable{
 		this.cedula = cedula;
 	}
 
-
-	public int getCustomer_id() {
-		return customer_id;
-	}
-
-
-	public void setCustomer_id(int customer_id) {
-		this.customer_id = customer_id;
-	}
 
 
 	public boolean isPreregister() {

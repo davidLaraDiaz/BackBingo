@@ -1,6 +1,7 @@
 package com.progracol.juego.interfaceService;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,8 +13,8 @@ public interface IBoardService {
 	
 	public Page<Board> findAll( Pageable pageable);
 	
-	public Board findById(Long id);
+	public Optional<Board> findById(Long id);
 	
-	public List<Board> topWinners(List<Boolean> bingo);
+	public List<Board> topWinners(List<Integer> bingo);
 	
 }

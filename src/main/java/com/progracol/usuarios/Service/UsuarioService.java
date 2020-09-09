@@ -1,4 +1,4 @@
-package com.progracol.usuarios.interfaceService;
+package com.progracol.usuarios.Service;
 
 import java.util.ArrayList;
 
@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.progracol.usuarios.dao.UsuarioRepository;
+import com.progracol.usuarios.interfaceService.IUsuarioService;
 import com.progracol.usuarios.model.Usuario;
 
 
@@ -31,11 +32,13 @@ public class UsuarioService implements IUsuarioService, UserDetailsService{
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
 		Usuario usuario = userDao.findByUsername(username);
-		
+		String miRol="";
 		if (usuario == null) {
 			String msg = "Error login, El usuario no existe en el sistema";
 			logger.error(msg);
 			throw new UsernameNotFoundException(msg);
+		}else /*if(usuario.getRol_id().getName()== "Superadmin" || usuario.getRol_id().getName()== "Admin") */{
+			miRol="ROLE_ADMIN";
 		}
 		
 		
@@ -43,7 +46,7 @@ public class UsuarioService implements IUsuarioService, UserDetailsService{
 		var roles = new ArrayList<GrantedAuthority>();
         
         
-        roles.add(new SimpleGrantedAuthority(usuario.getRol_id().getName()));
+        roles.add(new SimpleGrantedAuthority(miRol));
         
         
         return new User(usuario.getUsername(), usuario.getPassword(), roles);
